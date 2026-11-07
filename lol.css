@@ -1,0 +1,198 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 4600px;
+  background: url("https://raw.githubusercontent.com/dddpv/cosmos/main/galaxy.jpg") no-repeat center center fixed;
+  background-size: cover;
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* Общие контейнеры параллакса */
+.parallax-bg {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1200px;
+  height: 100vh;
+  pointer-events: none;
+}
+
+#parallax-bg-1 { z-index: 1; }
+#parallax-bg-2 { z-index: 2; }
+#parallax-bg-3 { z-index: 3; }
+
+/* Картинки-декорации */
+.meow1,
+.meow2,
+.meow3 {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.meow1 img,
+.meow2 img,
+.meow3 img {
+  display: block;
+  width: 220px;
+  height: auto;
+  object-fit: contain;
+}
+
+.meow1 { top: -200px; }
+.meow2 { top: -260px; }
+.meow3 { top: -320px; }
+
+@keyframes fall {
+  0%   { transform: translate(-50%, -200px); }
+  100% { transform: translate(-50%, 110vh); }
+}
+
+.meow1 { animation: fall 6s linear infinite; }
+.meow2 { animation: fall 8s linear infinite; }
+.meow3 { animation: fall 10s linear infinite; }
+
+/* Фоновые картинки */
+#parallax-bg-3 div,
+#parallax-bg-2 div,
+#parallax-bg-1 div {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+/* Третий слой */
+#bg-3-1 {
+  background-image: url("https://raw.githubusercontent.com/dddpv/cosmos/main/brown.png");
+  width: 420px;
+  height: 420px;
+  top: 5%;
+  right: 5%;
+}
+
+#bg-3-2 {
+  background-image: url("https://raw.githubusercontent.com/dddpv/cosmos/main/earth.png");
+  width: 480px;
+  height: 480px;
+  top: 25%;
+  right: 3%;
+}
+
+#bg-3-3 {
+  background-image: url("https://raw.githubusercontent.com/dddpv/cosmos/main/ring.png");
+  width: 640px;
+  height: 640px;
+  top: 45%;
+  right: 8%;
+}
+
+#bg-3-4 {
+  background-image: url("https://raw.githubusercontent.com/dddpv/cosmos/main/pushin.png");
+  width: 700px;
+  height: 700px;
+  top: 65%;
+  right: 0;
+}
+
+/* Второй слой */
+#bg-2-1,
+#bg-2-2,
+#bg-2-3,
+#bg-2-4 {
+  background-image: url("https://raw.githubusercontent.com/dddpv/cosmos/main/sun.png");
+  width: 320px;
+  height: 320px;
+}
+
+#bg-2-1 { top: 8%;  left: -5%; }
+#bg-2-2 { top: 18%; right: -5%; }
+#bg-2-3 { top: 45%; left: -8%; }
+#bg-2-4 { top: 60%; right: -8%; }
+
+#bg-2-5 {
+  top: 75%;
+  left: 10%;
+}
+
+#bg-2-6 {
+  top: 35%;
+  left: 25%;
+}
+
+/* Первый слой */
+#bg-1-1,
+#bg-1-3,
+#bg-1-5 {
+  background-image: url("https://raw.githubusercontent.com/dddpv/cosmos/main/sputnik.png");
+  width: 300px;
+  height: 300px;
+}
+
+#bg-1-2,
+#bg-1-4 {
+  background-image: url("https://raw.githubusercontent.com/dddpv/cosmos/main/cat.png");
+  width: 320px;
+  height: 320px;
+}
+
+#bg-1-1 { top: 10%; right: 15%; }
+#bg-1-2 { top: 22%; left: 2%; }
+#bg-1-3 { top: 42%; right: -10%; }
+#bg-1-4 { top: 62%; left: 12%; }
+#bg-1-5 { top: 55%; left: -8%; }
+
+/* Текст */
+.title {
+  position: absolute;
+  font-size: 42px;
+  font-weight: 800;
+  text-align: center;
+  text-shadow: 0 0 18px rgba(0, 0, 0, .8);
+}
+
+.cyan         { color: #0df0fc; }
+.purple       { color: #c00dfc; }
+.pink         { color: #ff4f8d; }
+.light-purple { color: #fa89fa; }
+
+#bg-3-3 .title { top: 45%; left: 50%; transform: translate(-50%, -50%); }
+#bg-3-4 .title { top: 45%; left: 50%; transform: translate(-50%, -50%); }
+#bg-2-5 .title { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+#bg-2-6 .title { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+#bg-1-4 .title { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+/* Адаптив */
+@media (max-width: 1250px) {
+  .parallax-bg {
+    width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  .title {
+    font-size: 26px;
+  }
+
+  .meow1 img,
+  .meow2 img,
+  .meow3 img {
+    width: 140px;
+  }
+
+  #bg-3-1, #bg-3-2, #bg-3-3, #bg-3-4,
+  #bg-2-1, #bg-2-2, #bg-2-3, #bg-2-4,
+  #bg-1-1, #bg-1-2, #bg-1-3, #bg-1-4, #bg-1-5 {
+    width: 180px;
+    height: 180px;
+  }
+}
